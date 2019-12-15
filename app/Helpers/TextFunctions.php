@@ -2,29 +2,37 @@
 
 namespace App\Helpers;
 
-class TextFunctions
+// Pattern Factory | SOLID | DTO
+
+class TextFunctions extends HelperFunctions
 {
-    public static function stripTags($text) {
+    public function stripTags($text)
+    {
         return strip_tags($text);
     }
 
-    public static function removeSpaces($text) {
+    public function removeSpaces($text)
+    {
         return str_replace(' ', '', $text);
     }
 
-    public static function replaceSpacesToEol($text) {
+    public function replaceSpacesToEol($text)
+    {
         return str_replace(' ', PHP_EOL, $text);
     }
 
-    public static function htmlspecialchars($text) {
+    public function htmlspecialchars($text)
+    {
         return htmlspecialchars($text);
     }
 
-    public static function removeSymbols($text) {
+    public function removeSymbols($text)
+    {
         return str_replace(['.', ',', '/', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')'], '', $text);
     }
 
-    public static function toNumber($text) {
+    public function toNumber($text)
+    {
         preg_match('/\d+/', $text, $number);
         return $number[0] ?? 0;
     }
